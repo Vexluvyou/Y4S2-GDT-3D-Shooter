@@ -71,6 +71,9 @@ public class Bullet : MonoBehaviour
         CreateImpactFx();
         ReturnBulletToPool();
 
+        IDamagable damagable = collision.gameObject.GetComponent<IDamagable>();
+        damagable?.TakeDamage();
+
         Enemy enemy = collision.gameObject.GetComponentInParent<Enemy>();
         Enemy_Shield shield = collision.gameObject.GetComponent<Enemy_Shield>();
 
